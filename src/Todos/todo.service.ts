@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { TodoRepository } from '../Todos/repository/todo.repository';
 import { createTodoDto } from './dto/create-dto.todos';
-import { updateTodoDto } from './dto/update-dto.todo';
+import { updateCompletedDto, updateTodoDto } from './dto/update-dto.todo';
 
 @Injectable()
 export class TodoService {
@@ -23,8 +23,8 @@ export class TodoService {
     return this.todoRepository.update(id, data);
   }
 
-  async updateTodoCompleted(id: number, isComplete: boolean) {
-    return this.todoRepository.updateComplete(id, isComplete);
+  async updateTodoCompleted(id: number, data: updateCompletedDto) {
+    return this.todoRepository.updateComplete(id, data);
   }
 
   async deleteTodo(id: number) {

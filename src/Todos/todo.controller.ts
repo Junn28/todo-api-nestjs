@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { TodoService } from './todo.service';
 import { createTodoDto } from './dto/create-dto.todos';
-import { updateTodoDto } from './dto/update-dto.todo';
+import { updateCompletedDto, updateTodoDto } from './dto/update-dto.todo';
 
 @Controller('todos')
 export class TodoController {
@@ -39,9 +39,9 @@ export class TodoController {
   @Patch('todo/:id')
   async updateTodoCompleted(
     @Param('id') id: number,
-    @Body() isComplete: boolean,
+    @Body() data: updateCompletedDto,
   ) {
-    return this.todoService.updateTodoCompleted(id, isComplete);
+    return this.todoService.updateTodoCompleted(id, data);
   }
 
   @Delete('todo/:id')

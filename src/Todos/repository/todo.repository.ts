@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/prisma/prisma.service';
 import { createTodoDto } from '../dto/create-dto.todos';
-import { updateTodoDto } from '../dto/update-dto.todo';
+import { updateCompletedDto, updateTodoDto } from '../dto/update-dto.todo';
 
 @Injectable()
 export class TodoRepository {
@@ -39,13 +39,13 @@ export class TodoRepository {
     });
   }
 
-  async updateComplete(id: number, isComplete: boolean) {
+  async updateComplete(id: number, data: updateCompletedDto) {
     return this.prisma.todos.update({
       where: {
         id: Number(id),
       },
       data: {
-        completed: isComplete,
+        completed: data.completed,
       },
     });
   }

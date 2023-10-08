@@ -4,3 +4,7 @@ export class updateTodoDto {
   due_date: Date;
   updatedAt: Date;
 }
+
+export class updateCompletedDto {
+  completed: boolean;
+}
