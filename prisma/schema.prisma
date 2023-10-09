@@ -12,8 +12,7 @@ datasource db {
 
 model todos {
   id          Int         @default(autoincrement()) @id
-  title       String
-  description String
+  description String?
   due_date    DateTime?   @db.Date
   completed   Boolean?    @default(false)
   createdAt   DateTime?   @default(now())

@@ -31,7 +31,6 @@ export class TodoRepository {
         id: Number(id),
       },
       data: {
-        title: data.title,
         description: data.description,
         due_date: data.due_date,
         updatedAt: data.updatedAt,

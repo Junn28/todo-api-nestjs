@@ -1,8 +1,7 @@
 -- CreateTable
 CREATE TABLE "todos" (
     "id" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
+    "description" TEXT,
     "due_date" DATE,
     "completed" BOOLEAN DEFAULT false,
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
