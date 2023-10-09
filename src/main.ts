@@ -7,6 +7,16 @@ const port = process.env.PORT || 3000;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const options = {
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: '*',
+    maxAge: 86400,
+  };
+
+  app.enableCors(options);
+
   const config = new DocumentBuilder()
     .setTitle('Todos API')
     .setDescription('This is a basic CRUD for Todos API')
